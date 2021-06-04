@@ -6,8 +6,9 @@ sync:
     before_script: 
         - git config user.name "gitlab-runner@$(hostname)"
         - git config user.email "gitlab@morsecorp.com"
-        - git remote add root "$ROOT_URL"
         - git remote set-url origin "$SSH_ORIGIN_URL"
+        - git checkout "$CI_COMMIT_REF_NAME"
+        - git remote add root "$ROOT_URL"
 
         - eval "$(ssh-agent -s)"
         - chmod 0600 "$SSH_PRIV_KEY"
