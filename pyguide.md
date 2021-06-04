@@ -1974,8 +1974,8 @@ examples.
 
   Typical usage example:
 
-  foo = ClassFoo()
-  bar = foo.FunctionBar()
+  >>> foo = ClassFoo()
+  >>> bar = foo.FunctionBar()
 """
 ```
 
