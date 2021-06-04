@@ -1,0 +1,19 @@
+stages:
+    - mirror
+sync:
+    stage: mirror
+    tags: [docker]
+    before_script: 
+        - git config user.name "gitlab-runner@$(hostname)"
+        - git config user.email "gitlab@morsecorp.com"
+        - git remote add root "$ROOT_URL"
+        - git remote set-url origin "$SSH_ORIGIN_URL"
+
+        - eval "$(ssh-agent -s)"
+        - chmod 0600 "$SSH_PRIV_KEY"
+        - ssh-add "$SSH_PRIV_KEY"
+        - mkdir -p ~/.ssh
+        - cat "$SSH_KNOWN_HOSTS" >~/.ssh/known_hosts
+    script:
+        - git pull --rebase=true root "$CI_COMMIT_REF_NAME"
+        - git push --force origin "$CI_COMMIT_REF_NAME"
