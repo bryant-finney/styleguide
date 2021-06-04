@@ -398,7 +398,8 @@ Exceptions must follow certain conditions:
     ```python
     Yes:
       def connect_to_next_port(self, minimum):
-        """Connects to the next available port.
+        """
+        Connects to the next available port.
 
         Args:
           minimum: A port value greater or equal to 1024.
@@ -426,7 +427,8 @@ Exceptions must follow certain conditions:
     ```python
     No:
       def connect_to_next_port(self, minimum):
-        """Connects to the next available port.
+        """
+        Connects to the next available port.
 
         Args:
           minimum: A port value greater or equal to 1024.
@@ -1022,7 +1024,8 @@ to ensure methods overridden in subclasses are called by the property (using the
 Yes: import math
 
      class Square:
-         """A square with two properties: a writable area and a read-only perimeter.
+         """
+         A square with two properties: a writable area and a read-only perimeter.
 
          To use:
          >>> sq = Square(3)
@@ -1961,7 +1964,8 @@ Every file should contain license boilerplate. Choose the appropriate boilerplat
 Files should start with a docstring describing the contents and usage of the
 module.
 ```python
-"""A one line summary of the module or program, terminated by a period.
+"""
+A one line summary of the module or program, terminated by a period.
 
 Leave one blank line.  The rest of this docstring should contain an
 overall description of the module or program.  Optionally, it may also
@@ -2049,7 +2053,8 @@ def fetch_smalltable_rows(table_handle: smalltable.Table,
                           keys: Sequence[Union[bytes, str]],
                           require_all_keys: bool = False,
 ) -> Mapping[bytes, Tuple[str]]:
-    """Fetches rows from a Smalltable.
+    """
+    Fetches rows from a Smalltable.
 
     Retrieves rows pertaining to the given keys from the Table instance
     represented by table_handle.  String keys will be UTF-8 encoded.
@@ -2086,7 +2091,8 @@ def fetch_smalltable_rows(table_handle: smalltable.Table,
                           keys: Sequence[Union[bytes, str]],
                           require_all_keys: bool = False,
 ) -> Mapping[bytes, Tuple[str]]:
-    """Fetches rows from a Smalltable.
+    """
+    Fetches rows from a Smalltable.
 
     Retrieves rows pertaining to the given keys from the Table instance
     represented by table_handle.  String keys will be UTF-8 encoded.
@@ -2133,7 +2139,8 @@ If your class has public attributes, they should be documented here in an
 
 ```python
 class SampleClass:
-    """Summary of class here.
+    """
+    Summary of class here.
 
     Longer class information....
     Longer class information....
