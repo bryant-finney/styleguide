@@ -2133,9 +2133,8 @@ def fetch_smalltable_rows(table_handle: smalltable.Table,
 #### 3.8.4 Classes 
 
 Classes should have a docstring below the class definition describing the class.
-If your class has public attributes, they should be documented here in an
-`Attributes` section and follow the same formatting as a
-[function's `Args`](#doc-function-args) section.
+If your class has public attributes, they should be declared and documented below the 
+class `docstring`.
 
 ```python
 class SampleClass:
@@ -2144,11 +2143,13 @@ class SampleClass:
 
     Longer class information....
     Longer class information....
-
-    Attributes:
-        likes_spam: A boolean indicating if we like SPAM or not.
-        eggs: An integer count of the eggs we have laid.
     """
+
+    #: A boolean indicating if we like SPAM or not.
+    likes_spam: bool
+    
+    #: An integer count of the eggs we have laid.
+    eggs: int
 
     def __init__(self, likes_spam=False):
         """Inits SampleClass with blah."""
