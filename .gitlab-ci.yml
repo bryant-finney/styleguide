@@ -10,11 +10,16 @@ sync:
         - git checkout "$CI_COMMIT_REF_NAME"
         - git remote add root "$ROOT_URL"
 
+        - git fetch root
+
         - eval "$(ssh-agent -s)"
         - chmod 0600 "$SSH_PRIV_KEY"
         - ssh-add "$SSH_PRIV_KEY"
         - mkdir -p ~/.ssh
         - cat "$SSH_KNOWN_HOSTS" >~/.ssh/known_hosts
     script:
+        # if this branch does not exist on the root repo, exit
+        - git branch -a | grep -q "root/$CI_COMMIT_REF_NAME" || exit 0
+
         - git pull --rebase=true root "$CI_COMMIT_REF_NAME"
         - git push --force origin "$CI_COMMIT_REF_NAME"
