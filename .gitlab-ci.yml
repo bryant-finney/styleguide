@@ -4,8 +4,8 @@ sync:
     stage: mirror
     tags: [docker]
     before_script: 
-        - git config user.name "gitlab-runner@$(hostname)"
-        - git config user.email "gitlab@morsecorp.com"
+        - git config user.name "$BOT_USER@$(hostname)"
+        - git config user.email "$BOT_EMAIL"
         - git remote set-url origin "$SSH_ORIGIN_URL"
         - git checkout "$CI_COMMIT_REF_NAME"
         - git remote add root "$ROOT_URL"
